@@ -79,14 +79,14 @@ class IssueManagerTest {
         @Test
         void shouldSortByNewest() {
             List<Issue> expected = List.of();
-            List<Issue> actual = manager.sortByNewest(new DateComparator());
+            List<Issue> actual = manager.sortByNewest();
             assertEquals(expected, actual);
         }
 
         @Test
         void shouldSortByOldest() {
             List<Issue> expected = List.of();
-            List<Issue> actual = manager.sortByOldest(new DateComparator());
+            List<Issue> actual = manager.sortByOldest();
             assertEquals(expected, actual);
         }
 
@@ -148,14 +148,14 @@ class IssueManagerTest {
         @Test
         void shouldSortByNewest() {
             List<Issue> expected = List.of(third);
-            List<Issue> actual = manager.sortByNewest(new DateComparator());
+            List<Issue> actual = manager.sortByNewest();
             assertEquals(expected, actual);
         }
 
         @Test
         void shouldSortByOldest() {
             List<Issue> expected = List.of(third);
-            List<Issue> actual = manager.sortByOldest(new DateComparator());
+            List<Issue> actual = manager.sortByOldest();
             assertEquals(expected, actual);
         }
 
@@ -238,14 +238,14 @@ class IssueManagerTest {
         @Test
         void shouldSortByNewest() {
             List<Issue> expected = List.of(fourth, third, first, second, fifth);
-            List<Issue> actual = manager.sortByNewest(new DateComparator());
+            List<Issue> actual = manager.sortByNewest();
             assertEquals(expected, actual);
         }
 
         @Test
         void shouldSortByOldest() {
             List<Issue> expected = List.of(fifth, second, first, third, fourth);
-            List<Issue> actual = manager.sortByOldest(new DateComparator());
+            List<Issue> actual = manager.sortByOldest();
             assertEquals(expected, actual);
         }
 
