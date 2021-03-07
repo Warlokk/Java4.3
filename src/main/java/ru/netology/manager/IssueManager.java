@@ -6,6 +6,7 @@ import ru.netology.repository.IssueRepository;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 
 @Data
@@ -44,10 +45,10 @@ public class IssueManager {
     }
 
     public List<Issue> filterByAuthor(String author) {
-        Predicate<String> filter = f -> f.equals(author);
+        Predicate<Issue> filter = f -> f.getAuthor().equals(author);
         List<Issue> result = new ArrayList<>();
         for (Issue item : repository.getAll()) {
-            if (filter.test(item.getAuthor())) {
+            if (filter.test(item)) {
                 result.add(item);
             }
         }
@@ -56,21 +57,22 @@ public class IssueManager {
     }
 
     public List<Issue> filterByLabel(Set<String> label) {
-        Predicate<Set> filter = f -> f.equals(label);
+        Predicate<Issue> filter = f -> f.getLabels().equals(label);
         List<Issue> result = new ArrayList<>();
         for (Issue item : repository.getAll()) {
-            if (filter.test(item.getLabels())) {
+            if (filter.test(item)) {
                 result.add(item);
             }
         }
         return result;
     }
 
+
     public List<Issue> filterByAssignee(Set<String> assignee) {
-        Predicate<Set> filter = f -> f.equals(assignee);
+        Predicate<Issue> filter = f -> f.getAssignees().equals(assignee);
         List<Issue> result = new ArrayList<>();
         for (Issue item : repository.getAll())
-            if (filter.test(item.getAssignees())) {
+            if (filter.test(item)) {
                 result.add(item);
             }
         return result;
